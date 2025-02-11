@@ -8,13 +8,13 @@ pipeline{
         }
         stage("compile java code"){
             steps{
-                sh "javac Main.java"
+                bat "javac Main.java"
              
             }
         }
         stage("Run java code"){
             steps{
-                   sh "java Main"
+                   bat "java Main"
             }
         }
     }
