@@ -6,16 +6,28 @@ pipeline{
                 git branch:"main" , url:"https://github.com/VyavahareDipak/freestyle-java-project.git"
             }
         }
-        stage("build"){
+        stage("compile java code"){
             steps{
                 sh "javac Main.java"
-                sh "java Main"
+             
             }
         }
-        stage("deploy"){
+        stage("Run java code"){
             steps{
-                echo "deploy successfully"
+                   sh "java Main"
             }
+        }
+    }
+
+    post{
+        success{
+            echo "Pipeline successful"
+
+        }
+        failure{
+
+            echo "Pipeline Failed"
+
         }
     }
 }
